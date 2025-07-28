@@ -1,0 +1,177 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+   height: 100vh;
+   font-family: 'Poppins', sans-serif;
+}
+
+section {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+
+.trees {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 4;
+    pointer-events: none;
+}
+
+.login {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    background-color: rgba(255, 255, 255, 0.208);
+    backdrop-filter: blur(10px);
+    width: 450px;
+    height: 500px;
+    padding: 40px;
+    border-radius: 15px;
+    border: 0.5px solid rgba(255, 255, 255, 0.56);
+    box-shadow: 1px 1px 25px rgba(0, 0, 0, 0.1);
+    z-index: 5;
+}
+
+.login div {
+    width: 100%;
+}
+
+h2 {
+    width: 100%;
+    text-align: center;
+    color: #90281F;
+    font-size: 3rem;
+}
+
+.inputBox input {
+    width: 100%;
+    padding: 15px;
+    border-radius: 5px;
+    border: none;
+    color: #90281F;
+    outline: none;
+    text-transform: capitalize;
+    font-size: 1rem;
+}
+
+.inputBox input::placeholder {
+    color: #90281F;
+    opacity: 0.7;
+}
+
+#btn {
+    background-color: #90281F;
+    color: white;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+#btn:hover {
+   opacity: 0.8;
+}
+
+.group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.group a {
+    color: #90281F;
+    text-decoration: none;
+    font-weight: 500;
+    transition: text-decoration 0.3s ease;
+}
+
+.group a:hover {
+    text-decoration: underline;
+}
+
+/* --- Girl Animation (Reversed Image) --- */
+.girl {
+    position: absolute;
+    bottom: 22%; /* Perfect alignment on the road */
+    z-index: 3;
+    animation: ride 25s linear infinite;
+}
+
+@keyframes ride {
+    from {
+        /* Starts off-screen to the right */
+        transform: translateX(100vw);
+    }
+    to {
+        /* Ends off-screen to the left */
+        transform: translateX(-480px); /* -480px is ~ her width */
+    }
+}
+
+
+/* --- Leaf Animation --- */
+.leaves {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.leaves .set {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+.leaves .set div {
+    position: absolute;
+    display: block;
+}
+
+.leaves .set div:nth-child(1) { left: 20%; animation: fall 15s linear infinite; animation-delay: -2s; }
+.leaves .set div:nth-child(2) { left: 50%; animation: fall 20s linear infinite; animation-delay: -5s; }
+.leaves .set div:nth-child(3) { left: 70%; animation: fall 18s linear infinite; animation-delay: 0s; }
+.leaves .set div:nth-child(4) { left: 5%; animation: fall 13s linear infinite; animation-delay: -7s; }
+.leaves .set div:nth-child(5) { left: 85%; animation: fall 16s linear infinite; animation-delay: -4s; }
+.leaves .set div:nth-child(6) { left: 90%; animation: fall 14s linear infinite; animation-delay: -10s; }
+.leaves .set div:nth-child(7) { left: 15%; animation: fall 19s linear infinite; animation-delay: -8s; }
+.leaves .set div:nth-child(8) { left: 60%; animation: fall 22s linear infinite; animation-delay: -12s; }
+
+@keyframes fall {
+    0% { top: -10%; opacity: 1; transform: translateX(0px) rotateZ(0deg); }
+    20% { transform: translateX(100px) rotateZ(45deg); }
+    40% { transform: translateX(-100px) rotateZ(90deg); }
+    60% { transform: translateX(100px) rotateZ(135deg); }
+    80% { transform: translateX(-100px) rotateZ(180deg); }
+    100% { top: 110%; opacity: 0; transform: translateX(50px) rotateZ(225deg); }
+}
